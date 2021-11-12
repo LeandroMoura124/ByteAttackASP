@@ -1,0 +1,83 @@
+﻿@model ByteAttack.Models.Usuario
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<style>
+    fieldset{
+        margin-top: 17%;
+        margin-left:5%;
+    }
+    fieldset legend {
+       border-color:#ee6969;
+    }
+    fieldset legend img {
+       margin-left:45%;
+       padding:-2px 0;
+    }
+    fieldset div {
+        margin-left: 4%;
+       
+    }
+    fieldset .txtuser {
+         width:50%;
+         padding:30px 0px;
+         color:red;
+    }
+    fieldset .senhauser{
+        padding:10px 0px;
+        color:red;
+    }
+    fieldset .senhauser img {
+            padding: 0px 0px 4px;
+    }
+    fieldset  .button input {
+        border-radius:40%;
+        width:120px;
+        border-color:black;
+        background:#fff;
+        color:red;
+    }
+        fieldset .button input:hover {
+            
+            background: red;
+            color:#fff
+          
+        }
+
+</style>
+<br />
+
+@using (Html.BeginForm("VerificarUsuario", "Login", FormMethod.Post))
+{
+    <fieldset>
+        <legend><img src="~/Imagens/man.png" style="width:100px" /></legend>
+        
+        <div class="txtuser">
+          <img src="~/Imagens/user (1).png" style="width:27px"/>  @Html.TextBoxFor(m => m.nm_usuario) @* caixa de texto *@
+        </div>
+        <div>
+            @Html.ValidationMessageFor(m => m.nm_usuario, "", new { @class = "text-danger" })
+            <!--mensagem de erro na cor vermelha -->
+        </div>
+       
+        <div class="senhauser">
+         <img src="~/Imagens/cadeado-desbloqueado.png" style="width:27px" />   @Html.PasswordFor(m => m.ds_senha)
+        </div>
+
+        <div>
+            @Html.ValidationMessageFor(m => m.ds_senha, "", new { @class = "text-danger" }) <!--mensagem de erro -->
+        </div>
+
+        <br>
+        <div class="button">
+            <input type="submit" name="btnEnviar" value="Login" />
+        </div>
+
+    </fieldset>
+    <!-- inserindo scripts para validação -->
+
+
+}
+
