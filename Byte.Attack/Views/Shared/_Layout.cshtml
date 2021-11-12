@@ -16,6 +16,11 @@
            
              color:#ff0000;
         }
+       
+         .nav li{
+            padding-top:10px;
+            color:red;
+        }
         
     </style>
 </head>
@@ -31,9 +36,7 @@
                 <div class="nav navbar-nav navbar-left " style="margin-right:100px">
                     <img src="~/Imagens/WhatsApp Image 2021-11-12 at 11.50.33.jpeg"  style="width: 210px" />
                 </div>
-                <ul class="nav navbar-nav navbar-right ">
-                    @Html.ActionLink( "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </ul>
+                
                 
             </div>
             @if (Session["usuarioLogado"] != null)
