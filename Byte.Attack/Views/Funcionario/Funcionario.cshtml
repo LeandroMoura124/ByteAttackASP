@@ -1,0 +1,124 @@
+﻿@model ByteAttack.Models.Funcionario
+
+@{
+    ViewBag.Title = "Funcionario";
+}
+
+<style>
+    h2{
+        margin-left:35%;
+        color:red;
+    }
+    fieldset legend{
+        color: #fa7070
+    }
+    fieldset .editor-field{
+        color:red;
+    }
+    fieldset input{
+        width:250px;
+    }
+    #buttonCadFunc{
+        width:100px;
+        background:#787777;
+        color:#f13d3d;
+    }
+    #buttonCadFunc:hover {
+        width: 100px;
+        background: #fff;
+        color: #f13d3d;
+    }
+
+
+    /*Estilizando inputs*/
+   
+</style>
+
+<br />
+<h2>Cadastro de Funcionários</h2>
+@using (Html.BeginForm("CadFuncionario", "Funcionario", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Dados do Funcionário</legend>
+        <div class="editor-label">
+            Código
+        </div>
+        <div id="cod" class="editor-field">
+            @Html.EditorFor(m => m.FuncCod)
+            @Html.ValidationMessageFor(m => m.FuncCod)
+        </div>
+
+        <div class="editor-label">
+            Nome
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncNome)
+            @Html.ValidationMessageFor(m => m.FuncNome)
+        </div>
+
+        <div class="editor-label">
+            CPF
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncCPF)
+            @Html.ValidationMessageFor(m => m.FuncCPF)
+        </div>
+
+        <div class="editor-label">
+            RG
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncRg)
+            @Html.ValidationMessageFor(m => m.FuncRg)
+        </div>
+
+        <div class="editor-label">
+            Data de Nascimento
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncDtNasc)
+            @Html.ValidationMessageFor(m => m.FuncDtNasc)
+        </div>
+
+        <div class="editor-label">
+            Endereço
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncEnd)
+            @Html.ValidationMessageFor(m => m.FuncEnd)
+        </div>
+
+        <div class="editor-label">
+            Celular
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncCel)
+            @Html.ValidationMessageFor(m => m.FuncCel)
+        </div>
+
+        <div class="editor-label">
+            Email
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncEmail)
+            @Html.ValidationMessageFor(m => m.FuncEmail)
+        </div>
+
+        <div class="editor-label">
+            Cargo
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.FuncCargo)
+            @Html.ValidationMessageFor(m => m.FuncCargo)
+        </div>
+
+        <br />
+
+        <p><input type="submit" id="buttonCadFunc" value="Cadastrar" /></p>
+
+
+    </fieldset>
+
+}

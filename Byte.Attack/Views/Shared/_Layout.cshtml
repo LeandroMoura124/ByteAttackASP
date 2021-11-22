@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
@@ -9,19 +9,18 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <style>
-        .navbar{
-            border-color:#ff0000;
+        .navbar {
+            border-color: #ff0000;
         }
-        footer p{
-           
-             color:#ff0000;
+
+        footer p {
+            color: #ff0000;
         }
-       
-         .nav li{
-            padding-top:10px;
-            color:red;
+
+        .nav li {
+            padding-top: 10px;
+            color: red;
         }
-        
     </style>
 </head>
 <body>
@@ -46,6 +45,8 @@
                         <li>@Html.ActionLink("Início", "Index", "Home")</li>
                         <li>@Html.ActionLink("Sobre", "About", "Home")</li>
                         <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Cadastrar Funcionário", "Funcionario", "Funcionario")</li>
+                        <li>@Html.ActionLink("Lista de Funcionários", "ListarFuncionario", "Funcionario")
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>@Html.ActionLink("Logout", "Login", "Login/Logout")</li>

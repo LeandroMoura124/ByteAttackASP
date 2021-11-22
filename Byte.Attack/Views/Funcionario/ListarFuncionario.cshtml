@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ByteAttack.Models.Funcionario>
+
+@{
+    ViewBag.Title = "ListarFuncionario";
+}
+<br />
+<br />
+
+
+<style>
+    .table{
+        background:#f16161;
+        color:black;
+        border-bottom:red;
+    }
+    a{
+        color:#ea6767;
+    }
+
+
+</style>
+
+
+
+<p>@Html.ActionLink("Cadastrar Funcionário", "Funcionario")</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncCod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncCPF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncRg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncDtNasc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncCel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.FuncCargo)
+        </th>
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncCod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncCPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncRg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncDtNasc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncCel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncCargo)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "AltFuncionario", null, new { cdFunc = item.FuncCod }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Deletar", "DelFuncionario", null, new { cdFunc = item.FuncCod }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+</table>
+
