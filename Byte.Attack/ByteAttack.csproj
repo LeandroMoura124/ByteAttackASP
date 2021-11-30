@@ -121,12 +121,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,7 +145,12 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagens\cadeado-desbloqueado.png" />
+    <Content Include="Imagens\especialista.png" />
+    <Content Include="Imagens\funcionarios.png" />
     <Content Include="Imagens\man.png" />
+    <Content Include="Imagens\pergunta-do-cliente.png" />
+    <Content Include="Imagens\procedimento.png" />
+    <Content Include="Imagens\sair.png" />
     <Content Include="Imagens\user %281%29.png" />
     <Content Include="Imagens\WhatsApp Image 2021-11-12 at 11.50.33.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -177,6 +184,9 @@
     <Content Include="Views\Funcionario\Funcionario.cshtml" />
     <Content Include="Views\Funcionario\CadFuncionario.cshtml" />
     <Content Include="Views\Funcionario\ListarFuncionario.cshtml" />
+    <Content Include="Views\Cliente\Cliente.cshtml" />
+    <Content Include="Views\Cliente\CadCliente.cshtml" />
+    <Content Include="Views\Cliente\ListarCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

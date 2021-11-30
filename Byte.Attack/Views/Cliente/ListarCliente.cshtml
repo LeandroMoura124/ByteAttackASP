@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ByteAttack.Models.Cliente>
+@{
+    ViewBag.Title = "ListarCliente";
+}
+<head>
+    <style>
+        .table {
+            background: #f16161;
+            color: black;
+            border-bottom: red;
+        }
+
+        a {
+            color: #ea6767;
+        }
+
+    </style>
+</head>
+
+
+<br />
+<br />
+<p>@Html.ActionLink("Cadastrar Cliente", "Cliente")</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.ClienteNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ClienteCPF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ClieDtNasc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ClienteEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ClienteCel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ClienteEnd)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteCPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClieDtNasc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteCel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteEnd)
+            </td>
+            <td>
+                @Html.ActionLink("Alterar", "AltCliente", null, new { cdClie = item.ClienteCPF }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Deletar", "DelCliente", null, new { cdClie = item.ClienteCPF }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+</table>

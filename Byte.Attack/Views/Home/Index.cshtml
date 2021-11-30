@@ -1,5 +1,64 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@{ ViewBag.Title = "Home Page"; }
 
-<h2>Index</h2>
+<style>
+    .container .index {
+        margin-top: 17%;
+       
+    }
+    .LogoIndex{
+        padding-bottom:50px;
+        margin-left:80%;
+    }
+   
+
+
+    /*.container .buttons {
+       background: #ffffff;
+       border: 1px solid #ee1111;
+    }*/
+    .container .buttonsIndex {
+        padding: 10px 450px;
+    }
+    .container .index #IndexTel{
+        border:1px solid red
+    }
+    .container .index .buttonsIndex img{
+      height:50px;
+    }
+    .container .buttonsIndex a {
+        text-decoration: none;
+        color: red;
+        font-size: 24px;
+        display: inline;
+        padding: 0px 2px;
+    }
+
+    .container  .buttonsIndex a:hover {
+            color: #000;
+    }
+    
+    
+ 
+    
+</style>
+
+
+
+<div class="container index">
+    <img src="~/Imagens/WhatsApp Image 2021-11-12 at 11.50.33.jpeg" style="width: 210px" class="LogoIndex" />
+    <div id="IndexTel">
+        <div class="buttonsIndex">
+            <img src="~/Imagens/pergunta-do-cliente.png"  style="padding-left:10px;"/>@Html.ActionLink("Cliente", "ListarCliente", "Cliente")
+        </div>
+        <div class="buttonsIndex">
+            <img src="~/Imagens/funcionarios.png" /> @Html.ActionLink("Assistentes", "ListarFuncionario", "Funcionario")
+        </div>
+        <div class="buttonsIndex">
+            <img src="~/Imagens/procedimento.png"/>@Html.ActionLink("Procedimentos", "ListarFuncionario", "Funcionario")
+        </div>
+        <div class="buttonsIndex">
+            <img src="~/Imagens/especialista.png" />@Html.ActionLink("Especialistas", "ListarFuncionario", "Funcionario")
+        </div>
+        <!--Botao sair provisório-->
+    </div>
+</div>

@@ -1,0 +1,106 @@
+﻿@model  ByteAttack.Models.Cliente
+
+
+@{
+    ViewBag.Title = "Cliente";
+}
+
+
+<head>
+    <style>
+        h2 {
+            margin-left: 35%;
+            color: red;
+        }
+
+        fieldset legend {
+            color: #fa7070
+        }
+
+        fieldset .editor-field {
+            color: red;
+        }
+
+        fieldset input {
+            width: 250px;
+        }
+
+        #buttonCadClie {
+            width: 100px;
+            background: #787777;
+            color: #f13d3d;
+        }
+
+            #buttonCadClie:hover {
+                width: 100px;
+                background: #fff;
+                color: #f13d3d;
+            }
+
+    </style>
+</head>
+<br />
+
+<h2>Cadastro de Clientes</h2>
+@using (Html.BeginForm("CadCliente", "Cliente", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Dados do Cliente</legend>
+        <div class="editor-label">
+            Nome
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClienteNome)
+            @Html.ValidationMessageFor(model => model.ClienteNome)
+        </div>
+
+        <div class="editor-label">
+            CPF
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClienteCPF)
+            @Html.ValidationMessageFor(model => model.ClienteCPF)
+        </div>
+
+        <div class="editor-label">
+            Data de Nascimento
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClieDtNasc)
+            @Html.ValidationMessageFor(model => model.ClieDtNasc)
+
+        </div>
+
+        <div class="editor-label">
+            Email
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClienteEmail)
+            @Html.ValidationMessageFor(model => model.ClienteEmail)
+
+        </div>
+
+        <div class="editor-label">
+            Número do Celular
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClienteCel)
+            @Html.ValidationMessageFor(model => model.ClienteCel)
+
+        </div>
+
+        <div class=" editor-label">
+            Endereço
+        </div>
+        <div class=" editor-field">
+            @Html.EditorFor(model => model.ClienteEnd)
+            @Html.ValidationMessageFor(model => model.ClienteEnd)
+        </div>
+        <br />
+
+        <p><input type="submit" value="Cadastrar" id="buttonCadClie" /></p>
+    </fieldset>
+
+}

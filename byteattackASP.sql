@@ -9,6 +9,7 @@ create table tbUsuario(
 )default charset utf8;
 
 insert into tbUsuario values(default,'admin','1234567');
+insert into tbUsuario values(default,'Leandro admin','1234567');
 
 
 
@@ -26,4 +27,27 @@ cargo varchar(30) not null,
 Primary key (IDfunc, cpf)
 
 ) DEFAULT CHARSET = utf8;
+
+
+
+create table cliente(
+nomeCliente varchar(40) not null,
+cpf bigint(14) not null,
+nascimento date not null,
+email varchar(40) not null,
+cel varchar(11) not null,
+enderecocli varchar(100) not null,
+primary key(cpf)
+
+)DEFAULT CHARSET = utf8;
+
+
+
+
 select * from funcionario;
+select * from cliente;
+truncate cliente;
+
+
+
+ 
