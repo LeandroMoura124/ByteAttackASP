@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ByteAttack.Repositorio;
 using ByteAttack.Models;
-using System.Web;
 using MySql.Data.MySqlClient;
-using System.Web.Mvc;
+using System.Collections.Generic;
 
 
 namespace ByteAttack.Repositorio
 {
-    public class Acoes 
+    public class Acoes
     {
 
         Conexao con = new Conexao();
@@ -102,7 +98,68 @@ namespace ByteAttack.Repositorio
 
             return user;
         }
-       
+
+
+
+
+
+
+
+
+
+
+
+
+        public void CadastrarClientes(Cliente cliente)
+        {
+            string data_sistema = Convert.ToDateTime(cliente.ClieDtNasc).ToString("yyyy-MM-dd");
+            MySqlCommand cmd = new MySqlCommand("insert into cliente values(@nomeCliente, @cpf, @nascimento, @email, @cel, @enderecocli)", con.MyConectarBD());
+            cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = cliente.ClienteCPF;
+            cmd.Parameters.Add("@nomeCliente", MySqlDbType.VarChar).Value = cliente.ClienteNome;
+            cmd.Parameters.Add("@nascimento", MySqlDbType.DateTime).Value = data_sistema;
+            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = cliente.ClienteEmail;
+            cmd.Parameters.Add("@cel", MySqlDbType.VarChar).Value = cliente.ClienteCel;
+            cmd.Parameters.Add("@enderecocli", MySqlDbType.VarChar).Value = cliente.ClienteEnd;
+            cmd.ExecuteNonQuery();
+            con.MyDesConectarBD();
+        }
+        public List<Cliente> ListarCliente()//Criando Um metodo para listar os funcionarios
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from cliente", con.MyConectarBD());
+            var DadosCliente = cmd.ExecuteReader();
+            return ListarTodosCliente(DadosCliente);
+        }
+
+        public List<Cliente> ListarTodosCliente(MySqlDataReader dt)
+        {
+            var TodosCliente = new List<Cliente>();
+            while (dt.Read())
+            {
+                var ClienteTemp = new Cliente()
+                {
+                    ClienteCPF = dt["cpf"].ToString(),
+                    ClienteNome = dt["nomeCliente"].ToString(),
+                    ClieDtNasc = DateTime.Parse(dt["nascimento"].ToString()),
+                    ClienteEmail = dt["email"].ToString(),
+                    ClienteCel = dt["cel"].ToString(),
+                    ClienteEnd = dt["enderecocli"].ToString()
+
+                };
+                TodosCliente.Add(ClienteTemp);
+            }
+            dt.Close();
+            return TodosCliente;
+        }
+        public void DeletarCliente(int dlt)
+        {
+            var comando = String.Format("delete from cliente where funcCod = {0}", dlt);
+            MySqlCommand cmd = new MySqlCommand(comando, con.MyConectarBD());
+            cmd.ExecuteReader();
+        }
+
+
+
+
 
 
 

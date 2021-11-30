@@ -41,5 +41,7 @@ namespace ByteAttack.Repositorio
             }
             return cn;
         }
+
+       
     }
 }
