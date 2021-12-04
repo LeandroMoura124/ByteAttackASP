@@ -68,7 +68,7 @@ select * from cliente;
 truncate cliente;
 
 
-insert into Especialista values('Leandro')
+insert into Especialista values('Leandro M', '2004-10-11', '49931503858', 'leokurt4@gmail.com', '11985803670', '1');
 
 
 
