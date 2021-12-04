@@ -164,5 +164,149 @@ namespace ByteAttack.Repositorio
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void CadastrarProcedimento(Procedimento procedimento)
+        {
+            string data_sistema = Convert.ToDateTime(procedimento.ProceDtNasc).ToString("yyyy-MM-dd");
+            MySqlCommand cmd = new MySqlCommand("insert into Procedimento values(@IDProcedimento, @NomeProcedimento, @DataProcedimento, @DescProcedimento, @MetodoPgto, @ValorTotal)", con.MyConectarBD());
+            cmd.Parameters.Add("@IDProcedimento", MySqlDbType.VarChar).Value = procedimento.ProcedimentoID;
+            cmd.Parameters.Add("@NomeProcedimento", MySqlDbType.VarChar).Value = procedimento.ProcedimentoNome;
+            cmd.Parameters.Add("@DataProcedimento", MySqlDbType.DateTime).Value = data_sistema;
+            cmd.Parameters.Add("@DescProcedimento", MySqlDbType.VarChar).Value = procedimento.ProcedimentoDesc;
+            cmd.Parameters.Add("@MetodoPgto", MySqlDbType.VarChar).Value = procedimento.ProcedimentoMtd;
+            cmd.Parameters.Add("@ValorTotal", MySqlDbType.VarChar).Value = procedimento.ProcedimentoValor;
+            cmd.ExecuteNonQuery();
+            con.MyDesConectarBD();
+        }
+        public List<Procedimento> ListarProcedimento()//Criando Um metodo para listar os funcionarios
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from Procedimento", con.MyConectarBD());
+            var DadosProcedimento = cmd.ExecuteReader();
+            return ListarTodosProcedimento(DadosProcedimento);
+        }
+
+        public List<Procedimento> ListarTodosProcedimento(MySqlDataReader dt)
+        {
+            var TodosProcedimento = new List<Procedimento>();
+            while (dt.Read())
+            {
+                var ProcedimentoTemp = new Procedimento()
+                {
+                    ProcedimentoID = ushort.Parse(dt["IDProcedimento"].ToString()),
+                    ProcedimentoNome = dt["NomeProcedimento"].ToString(),
+                    ProceDtNasc = DateTime.Parse(dt["DataProcedimento"].ToString()),
+                    ProcedimentoDesc = dt["DescProcedimento"].ToString(),
+                    ProcedimentoMtd = dt["MetodoPgto"].ToString(),
+                    ProcedimentoValor = dt["ValorTotal"].ToString()
+
+                };
+                TodosProcedimento.Add(ProcedimentoTemp);
+            }
+            dt.Close();
+            return TodosProcedimento;
+        }
+        public void DeletarProcedimento(int dlt)
+        {
+            var comando = String.Format("delete from Procedimento where IDProcedimento = {0}", dlt);
+            MySqlCommand cmd = new MySqlCommand(comando, con.MyConectarBD());
+            cmd.ExecuteReader();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void CadastrarEspecialista(Especialista especialista)
+        {
+            string data_sistema = Convert.ToDateTime(especialista.EspecDtNasc).ToString("yyyy-MM-dd");
+            MySqlCommand cmd = new MySqlCommand("insert into Especialista values(@IDEspecialista, @NomeEspec, @DataNascEspec, @cpfEspec, @EmailEspec, @NumEspec)", con.MyConectarBD());
+            cmd.Parameters.Add("@IDEspecialista", MySqlDbType.VarChar).Value = especialista.EspecialistaID;
+            cmd.Parameters.Add("@NomeEspec", MySqlDbType.VarChar).Value = especialista.EspecialistaNome;
+            cmd.Parameters.Add("@DataNascEspec", MySqlDbType.DateTime).Value = data_sistema;
+            cmd.Parameters.Add("@cpfEspec", MySqlDbType.VarChar).Value = especialista.EspecCPF;
+            cmd.Parameters.Add("@EmailEspec", MySqlDbType.VarChar).Value = especialista.EspecEmail;
+            cmd.Parameters.Add("@NumEspec", MySqlDbType.VarChar).Value = especialista.EspecCel;
+            cmd.ExecuteNonQuery();
+            con.MyDesConectarBD();
+        }
+        public List<Especialista> ListarEspecialista()//Criando Um metodo para listar os funcionarios
+        {
+            MySqlCommand cmd = new MySqlCommand("select * from Especialista", con.MyConectarBD());
+            var DadosEspecialista = cmd.ExecuteReader();
+            return ListarTodosEspecialista(DadosEspecialista);
+        }
+
+        public List<Especialista> ListarTodosEspecialista(MySqlDataReader dt)
+        {
+            var TodosEspecialista = new List<Especialista>();
+            while (dt.Read())
+            {
+                var EspecialistaTemp = new Especialista()
+                {
+                    EspecialistaID = ushort.Parse(dt["IDEspecialista"].ToString()),
+                    EspecialistaNome = dt["NomeEspec"].ToString(),
+                    EspecDtNasc = DateTime.Parse(dt["DataNascEspec"].ToString()),
+                    EspecCPF = dt["cpfEspec"].ToString(),
+                    EspecEmail = dt["EmailEspec"].ToString(),
+                    EspecCel = dt["NumEspec"].ToString()
+
+                };
+                TodosEspecialista.Add(EspecialistaTemp);
+            }
+            dt.Close();
+            return TodosEspecialista;
+        }
+        public void DeletarEspecialista(int dlt)
+        {
+            var comando = String.Format("delete from Especialista where IDEspecialista = {0}", dlt);
+            MySqlCommand cmd = new MySqlCommand(comando, con.MyConectarBD());
+            cmd.ExecuteReader();
+        }
+
+
+
+
+
+
+
+
     }
 }

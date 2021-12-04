@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ByteAttack.Models.Especialista>
+
+@{
+    ViewBag.Title = "ListarEspecialista";
+}
+<br />
+<br />
+
+
+<style>
+    .table {
+        background: #f16161;
+        color: black;
+        border-bottom: red;
+    }
+
+    a {
+        color: #ea6767;
+    }
+</style>
+
+
+
+<p>@Html.ActionLink("Cadastrar Especialista", "Especialista")</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.EspecialistaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.EspecialistaNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.EspecDtNasc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.EspecCPF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.EspecEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.EspecCel)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspecialistaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspecialistaNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspecDtNasc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspecCPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspecEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EspecCel)
+            </td>
+
+            <td>
+                @Html.ActionLink("Alterar", "AltFuncionario", null, new { cdFunc = item.EspecialistaID }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Deletar", "DelFuncionario", null, new { cdFunc = item.EspecialistaID }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+</table>
+

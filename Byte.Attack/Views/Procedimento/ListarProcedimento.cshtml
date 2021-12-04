@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ByteAttack.Models.Procedimento>
+
+@{
+    ViewBag.Title = "ListarProcedimento";
+}
+<br />
+<br />
+
+
+<style>
+    .table {
+        background: #f16161;
+        color: black;
+        border-bottom: red;
+    }
+
+    a {
+        color: #ea6767;
+    }
+</style>
+
+
+
+<p>@Html.ActionLink("Cadastrar Procedimento", "Procedimento")</p>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.ProcedimentoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ProcedimentoNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ProceDtNasc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ProcedimentoDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ProcedimentoMtd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ProcedimentoValor)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcedimentoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcedimentoNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProceDtNasc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcedimentoDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcedimentoMtd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcedimentoValor)
+            </td>
+          
+            <td>
+                @Html.ActionLink("Alterar", "AltFuncionario", null, new { cdFunc = item.ProcedimentoID }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Deletar", "DelFuncionario", null, new { cdFunc = item.ProcedimentoID }, new { @class = "btn btn-danger btn-xs" })
+            </td>
+        </tr>
+    }
+</table>
+

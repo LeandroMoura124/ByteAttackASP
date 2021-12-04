@@ -1,0 +1,107 @@
+﻿@model ByteAttack.Models.Especialista
+
+@{
+    ViewBag.Title = "Especialista";
+}
+
+<style>
+    h2 {
+        margin-left: 35%;
+        color: red;
+    }
+
+    fieldset legend {
+        color: #fa7070
+    }
+
+    fieldset .editor-field {
+        color: red;
+    }
+
+    fieldset input {
+        width: 250px;
+    }
+
+    #buttonCadEspec {
+        width: 100px;
+        background: #787777;
+        color: #f13d3d;
+    }
+
+        #buttonCadEspec:hover {
+            width: 100px;
+            background: #fff;
+            color: #f13d3d;
+        }
+
+
+    /*Estilizando inputs*/
+
+</style>
+
+<br />
+<h2>Cadastro de Procedimentos</h2>
+@using (Html.BeginForm("CadEspecialista", "Especialista", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Dados do Especialista</legend>
+        <div class="editor-label">
+            Código
+        </div>
+        <div id="cod" class="editor-field">
+            @Html.EditorFor(m => m.EspecialistaID)
+            @Html.ValidationMessageFor(m => m.EspecialistaID)
+        </div>
+
+        <div class="editor-label">
+            Nome do Especialista
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.EspecialistaNome)
+            @Html.ValidationMessageFor(m => m.EspecialistaNome)
+        </div>
+
+
+        <div class="editor-label">
+            Data de nascimento 
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.EspecDtNasc)
+            @Html.ValidationMessageFor(m => m.EspecDtNasc)
+        </div>
+
+        <div class="editor-label">
+            CPF
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.EspecCPF)
+            @Html.ValidationMessageFor(m => m.EspecCPF)
+        </div>
+
+        <div class="editor-label">
+            Email profissional
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.EspecEmail)
+            @Html.ValidationMessageFor(m => m.EspecEmail)
+        </div>
+
+        <div class="editor-label">
+            Cel
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.EspecCel)
+            @Html.ValidationMessageFor(m => m.EspecCel)
+        </div>
+
+
+        <br />
+
+        <p><input type="submit" id="buttonCadEspec" value="Cadastrar" /></p>
+
+
+    </fieldset>
+
+}

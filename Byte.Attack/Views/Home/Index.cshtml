@@ -9,6 +9,10 @@
         padding-bottom:50px;
         margin-left:80%;
     }
+    .h3Index{
+        color:red;
+        padding: 0px 280px 30px;
+    }
    
 
 
@@ -45,6 +49,7 @@
 
 
 <div class="container index">
+    <h3 class="h3Index">Bem-vindo ao sistema Narcissus Clínica de Estética!</h3>
     <img src="~/Imagens/WhatsApp Image 2021-11-12 at 11.50.33.jpeg" style="width: 210px" class="LogoIndex" />
     <div id="IndexTel">
         <div class="buttonsIndex">
@@ -54,10 +59,10 @@
             <img src="~/Imagens/funcionarios.png" /> @Html.ActionLink("Assistentes", "ListarFuncionario", "Funcionario")
         </div>
         <div class="buttonsIndex">
-            <img src="~/Imagens/procedimento.png"/>@Html.ActionLink("Procedimentos", "ListarFuncionario", "Funcionario")
+            <img src="~/Imagens/procedimento.png"/>@Html.ActionLink("Procedimentos", "ListarProcedimento", "Procedimento")
         </div>
         <div class="buttonsIndex">
-            <img src="~/Imagens/especialista.png" />@Html.ActionLink("Especialistas", "ListarFuncionario", "Funcionario")
+            <img src="~/Imagens/especialista.png" />@Html.ActionLink("Especialistas", "ListarEspecialista", "Especialista")
         </div>
         <!--Botao sair provisório-->
     </div>

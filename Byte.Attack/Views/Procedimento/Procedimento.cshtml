@@ -1,0 +1,107 @@
+﻿@model ByteAttack.Models.Procedimento
+
+@{
+    ViewBag.Title = "Procedimento";
+}
+
+<style>
+    h2 {
+        margin-left: 35%;
+        color: red;
+    }
+
+    fieldset legend {
+        color: #fa7070
+    }
+
+    fieldset .editor-field {
+        color: red;
+    }
+
+    fieldset input {
+        width: 250px;
+    }
+
+    #buttonCadProce {
+        width: 100px;
+        background: #787777;
+        color: #f13d3d;
+    }
+
+        #buttonCadProce:hover {
+            width: 100px;
+            background: #fff;
+            color: #f13d3d;
+        }
+
+
+    /*Estilizando inputs*/
+
+</style>
+
+<br />
+<h2>Cadastro de Procedimentos</h2>
+@using (Html.BeginForm("CadProcedimento", "Procedimento", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Dados do Procedimento</legend>
+        <div class="editor-label">
+            Código
+        </div>
+        <div id="cod" class="editor-field">
+            @Html.EditorFor(m => m.ProcedimentoID)
+            @Html.ValidationMessageFor(m => m.ProcedimentoID)
+        </div>
+
+        <div class="editor-label">
+            Nome do procedimento
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.ProcedimentoNome)
+            @Html.ValidationMessageFor(m => m.ProcedimentoNome)
+        </div>
+
+
+        <div class="editor-label">
+            Data do procedimento
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.ProceDtNasc)
+            @Html.ValidationMessageFor(m => m.ProceDtNasc)
+        </div>
+
+        <div class="editor-label">
+            Descrição do Procedimento
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.ProcedimentoDesc)
+            @Html.ValidationMessageFor(m => m.ProcedimentoDesc)
+        </div>
+
+        <div class="editor-label">
+            Informe o método de pagamento(dinheiro, crédito ou débito)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.ProcedimentoMtd)
+            @Html.ValidationMessageFor(m => m.ProcedimentoMtd)
+        </div>
+
+        <div class="editor-label">
+            Valor total
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.ProcedimentoValor)
+            @Html.ValidationMessageFor(m => m.ProcedimentoValor)
+        </div>
+
+
+        <br />
+
+        <p><input type="submit" id="buttonCadProce" value="Cadastrar" /></p>
+
+
+    </fieldset>
+
+}

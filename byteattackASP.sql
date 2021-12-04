@@ -42,12 +42,37 @@ primary key(cpf)
 )DEFAULT CHARSET = utf8;
 
 
+CREATE TABLE Procedimento (
+IDProcedimento int PRIMARY KEY,
+NomeProcedimento varchar(40) not null,
+DataProcedimento datetime not null,
+DescProcedimento mediumtext not null,
+MetodoPgto varchar(20) not null,
+ValorTotal varchar(15) not null
+)DEFAULT CHARSET = utf8;
+
+CREATE TABLE Especialista (
+NomeEspec varchar(40) not null,
+DataNascEspec datetime not null,
+cpfEspec bigint(14) not null,
+EmailEspec varchar(40) not null,
+NumEspec varchar(11) not null,
+IDEspecialista int not null,
+Primary Key (cpfEspec, IDEspecialista)
+)DEFAULT CHARSET = utf8;
+
 
 
 select * from funcionario;
 select * from cliente;
 truncate cliente;
 
+
+insert into Especialista values('Leandro')
+
+
+
+select * from procedimento;
 
 
  
